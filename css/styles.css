@@ -6,3 +6,13 @@ body {
   margin: 20px;
   background-color: #CDDEFF;
 }
+
+#start {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+#add-task {
+  display: inline-block;
+}
