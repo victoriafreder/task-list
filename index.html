@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+  Alyssa Wilson - Project Manager,
+  Catherine Kuhfeldt,
+	Sviatoslav Pechenevskyi,
+  Victoria Fredericksen
+	task-list website index.html
+	01/25/2022
+-->
 <html lang="en">
 
 <head>
@@ -12,43 +20,74 @@
 </head>
 
 <body>
+
   <header>
+    <div class="myLogo" id="myLogo">
+      <figure>
+          <img src="images/generation.JPG" alt="My Logo" >
+          <figcaption>Generation USA Cohort 1</figcaption>
+      </figure>
+    </div>
+    <h1 class="myLogo">Project Generation</h1>
     <div id="start" class="bg-light py-3 mb-4 border border-secondary rounded">
-      <h1>Start a To-Do List</h1>
+      <h1 class="myLogo">Start a To-Do List</h1>
     </div>
   </header>
-  <!--SECTION FOR ADD NEW TASK FORM-->
-  <section>
-    <div id="add-task" class="bg-light px-2 mb-3 border border-secondary rounded">
-      <h2>Add New Task:</h2>
+
+  <!--	Links to my other pages within the website.     -->
+  <nav>
+
+  </nav>
+
+  <main>
+    <!--SECTION FOR ADD NEW TASK FORM-->
+    <section>
+      <div id="add-task" class="bg-light px-2 mb-3 border border-secondary rounded">
+        <h2>Add New Task:</h2>
+      </div>
+      <form>
+        <div class="row mb-3 align-items-end">
+          <label for="task-name" class="form-label col-sm-2">Task Name:</label>
+          <div class="col-sm-10">
+            <input type="text" id="task-name" name="task-name" class="form-control">
+          </div>
+        </div>
+        <div class="row mb-3 align-items-end">
+          <label for="assigned-person" class="form-label col-sm-2">Assigned to:</label>
+          <div class="col-sm-4">
+            <input type="text" id="assigned-person" name="assigned-person" class="form-control">
+          </div>
+          <label for="due-date" class="form-label col-sm-2">Due Date:</label>
+          <div class="col-sm-4">
+            <input type="date" id="due-date" name="due-date" class="form-control">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="task-description" class="form-label col-sm-2">Description:</label>
+          <div class="col-sm-10 mb-3">
+            <textarea id="task-description" name="task-description" rows="5" class="form-control col-sm-10" placeholder="Describe your task here"></textarea>
+          </div>
+          <div class="row justify-content-end">
+            <button type="submit" class="btn btn-primary col-auto">Submit</button>
+          </div>
+      </form>
+    </section>
+</main>
+
+  <footer>
+    <div class="authors">
+      <ul>Cohort 1
+        <li>Catherine Kuhfeldt</li>
+        <li>Sviatoslav Pechenevskyi</li>
+        <li>Victoria Fredericksen</li>
+      </ul>
+      <p>
+          Copyright 2022. All Rights Reserved. <br>
+          <a href="https://usa.generation.org/" target="_blank">Generation USA</a><br>
+      </p>
     </div>
-    <form>
-      <div class="row mb-3 align-items-end">
-        <label for="task-name" class="form-label col-sm-2">Task Name:</label>
-        <div class="col-sm-10">
-          <input type="text" id="task-name" name="task-name" class="form-control">
-        </div>
-      </div>
-      <div class="row mb-3 align-items-end">
-        <label for="assigned-person" class="form-label col-sm-2">Assigned to:</label>
-        <div class="col-sm-4">
-          <input type="text" id="assigned-person" name="assigned-person" class="form-control">
-        </div>
-        <label for="due-date" class="form-label col-sm-2">Due Date:</label>
-        <div class="col-sm-4">
-          <input type="date" id="due-date" name="due-date" class="form-control">
-        </div>
-      </div>
-      <div class="row mb-3">
-        <label for="task-description" class="form-label col-sm-2">Description:</label>
-        <div class="col-sm-10 mb-3">
-          <textarea id="task-description" name="task-description" rows="5" class="form-control col-sm-10" placeholder="Describe your task here"></textarea>
-        </div>
-        <div class="row justify-content-end">
-          <button type="submit" class="btn btn-primary col-auto">Submit</button>
-        </div>
-    </form>
-  </section>
+  </footer>
+
 </body>
 
 </html>
