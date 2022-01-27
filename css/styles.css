@@ -2,6 +2,37 @@
   box-sizing: border-box;
 }
 
+#myLogo figcaption  {
+  width: 70%;
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: #f5f24d;
+  text-align: center;
+}
+
+.container figcaption {
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: #f5f24d;
+  text-align: center;
+}
+
+.myLogo img {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  float: left;
+}
+
+.myLogo{
+  display: inline-block;
+  width: 500px;
+  vertical-align: middle;
+  text-align: center;
+}
+
 body {
   margin: 20px;
   background-color: #CDDEFF;
@@ -15,4 +46,13 @@ body {
 
 #add-task {
   display: inline-block;
+}
+
+.list-group-item {
+  margin: 5px;
+  padding: 0;
+}
+
+.authors  {
+  font-size: 12px;
 }
