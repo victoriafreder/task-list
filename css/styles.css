@@ -11,6 +11,14 @@
   text-align: center;
 }
 
+.container figcaption {
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: #f5f24d;
+  text-align: center;
+}
+
 .myLogo img {
   width: 70%;
   height: auto;
@@ -38,6 +46,11 @@ body {
 
 #add-task {
   display: inline-block;
+}
+
+.list-group-item {
+  margin: 5px;
+  padding: 0;
 }
 
 .authors  {
