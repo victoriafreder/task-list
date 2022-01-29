@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+#project {
+  color: blue;
+  text-shadow: 2px 2px;
+  font-size: 
+}
+
 #myLogo figcaption  {
   width: 70%;
   font-weight: bold;
@@ -34,8 +40,11 @@
 }
 
 body {
-  margin: 20px;
-  background-color: #CDDEFF;
+  margin: 20px; 
+}
+
+.backgroundPicture  {
+  
 }
 
 #start {
@@ -54,5 +63,15 @@ body {
 }
 
 .authors  {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+#footer {
+  color: black;
+  font-weight: bolder;
+}
+
+.imgFooter  {
+  color: black;
+  font-weight: bolder;
 }
