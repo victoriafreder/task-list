@@ -5,7 +5,6 @@
 #project {
   color: blue;
   text-shadow: 2px 2px;
-  font-size: 
 }
 
 #myLogo figcaption  {
@@ -39,12 +38,8 @@
   text-align: center;
 }
 
-body {
-  margin: 20px; 
-}
-
 .backgroundPicture  {
-  
+  background-size: cover;
 }
 
 #start {
