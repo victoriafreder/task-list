@@ -14,22 +14,24 @@ const submitButton = document.getElementById('submit-button');
 const validFormFieldInput = () => {
   const newTaskNameInput = document.querySelector('#task-name');
   const name = newTaskNameInput.value;
+
   const newAssignedToInput = document.querySelector('#assigned-person');
   const person = newAssignedToInput.value;
+
   const dateInput = document.querySelector('#due-date');
   const date = dateInput.value;
+
   const newDescriptionInput = document.querySelector('#task-description');
   const description = newDescriptionInput.value;
- // console.log('name: ' + name + ' assigned to: ' + person + ' //date: ' + date ' description: ' + description);
-
-  var alertPlaceholder = document.querySelector('.liveAlertPlaceholder');
+ 
+  var myAlert = document.querySelector('.liveAlertPlaceholder');
+  myAlert.innerHTML = '';
 
   function warning (inputValue, inputName) {
     if (inputValue.length === 0) {
-      var wrapper = document.createElement('div');
-      wrapper.innerHTML = '<div class="alert alert-primary alert-dismissible" role="alert">' + 'Please input ' + inputName + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+      myAlert.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + 'Please input ' + inputName + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
       
-      alertPlaceholder.append(wrapper);
+      alertPlaceholder.append(myAlert);
       } 
   }
   
