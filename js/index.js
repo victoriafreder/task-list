@@ -42,3 +42,6 @@ const validFormFieldInput = () => {
 }
 
 submitButton.onclick = validFormFieldInput;
+
+const myTask = new TaskManager;
+console.log(myTask.tasks)
