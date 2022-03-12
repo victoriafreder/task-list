@@ -30,7 +30,6 @@ const validFormFieldInput = () => {
    warning(description, 'a task description');
 
   myTask.addTask(name, description, person, date, 'TODO');
-  //console.log(myTask.tasks);
 
 }
 
