@@ -43,6 +43,7 @@ const validFormFieldInput = () => {
 
 submitButton.addEventListener('click', function () {
   validFormFieldInput();
+  
   if (taskName && person && date && description) {
     myTask.addTask(taskName, person, date, description);
     const taskForm = document.getElementById('task-form');
