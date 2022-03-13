@@ -10,7 +10,7 @@ class TaskManager {
     description,
     assignedTo,
     dueDate,
-    'TODO'
+    status
   ];
     this.tasks.push(taskObj);
     console.log(this.tasks);
