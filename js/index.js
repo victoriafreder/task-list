@@ -46,10 +46,11 @@ submitButton.addEventListener('click', function () {
   
   if (taskName && person && date && description) {
     myTask.addTask(taskName, person, date, description);
+    myTask.render();
     const taskForm = document.getElementById('task-form');
     taskForm.reset();
   }
 } );
 
-const taskHtml = createTaskHtml('Get groceries', 'get eggs and milk', 'Victoria', '3/15/2022', 'To Do');
-console.log(taskHtml)
+//const taskHtml = createTaskHtml('Get groceries', 'get eggs and milk', 'Victoria', '3/15/2022', 'To Do');
+//console.log(taskHtml)
