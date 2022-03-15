@@ -1,11 +1,11 @@
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+const createTaskHtml = (name, dueDate, assignedTo, description, status) => {
   console.log(name);
   const html = `
   <li class="list-group-item">
             <div class="card">
               <div class="card-body">
                 <div class="row">
-                  <h5 class="col card-title">${TaskManager.name}</h5>
+                  <h5 class="col card-title">${name}</h5>
                   <h6 class="col card-subtitle text-danger text-end">Due Date: ${dueDate}</h6>
                 </div>
                 <h6 class="card-subtitle mb-2 text-muted">Assigned to: ${assignedTo}</h6>
@@ -35,13 +35,13 @@ class TaskManager {
     this.currentId = currentId;
     this.tasks = [];
   }
-  addTask = (name, description, assignedTo, dueDate, status = 'TODO') => {
+  addTask = (name, dueDate, assignedTo, description, status = 'TO DO') => {
     const taskObj = [
       this.currentId++,
       name,
-      description,
-      assignedTo,
       dueDate,
+      assignedTo,
+      description,
       status
     ];
     this.tasks.push(taskObj);
@@ -69,12 +69,12 @@ push the taskHtml into the tasksHtmlList array. */
     for (let i = 0; i < this.tasks.length; i++) {
       //store current task in a variable?
       const currentTask = this.tasks[i];
-      console.log(currentTask);
-      const date = new Date(this.dueDate);
-      console.log(date);
-      const formattedDate = `${date.getMonth()} ${date.getDate()}, ${date.getFullYear()}`;
-      const taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate, currentTask.status);
-      console.log(taskHtml);
+      
+      const date = new Date(currentTask[3]);
+      const formattedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+      //adding 1 to getMonth() because array of months begins with 0=January...
+      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5]);
+      
       tasksHtmlList.push(taskHtml)
     }
 
