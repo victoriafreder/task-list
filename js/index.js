@@ -11,6 +11,8 @@ const myTask = new TaskManager;
   let date = dateInput.value;
   let description = newDescriptionInput.value;
 
+  
+
 const validFormFieldInput = () => {
   
    taskName = newTaskNameInput.value;
