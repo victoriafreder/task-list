@@ -11,8 +11,6 @@ const myTask = new TaskManager;
   let date = dateInput.value;
   let description = newDescriptionInput.value;
 
-  
-
 const validFormFieldInput = () => {
   
    taskName = newTaskNameInput.value;
@@ -53,3 +51,5 @@ submitButton.addEventListener('click', function () {
   }
 } );
 
+const taskHtml = createTaskHtml('Get groceries', 'get eggs and milk', 'Victoria', '3/15/2022', 'To Do');
+console.log(taskHtml)
