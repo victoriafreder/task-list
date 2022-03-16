@@ -1,8 +1,8 @@
-const createTaskHtml = (name, dueDate, assignedTo, description, status, idTask) => {
+const createTaskHtml = (name, dueDate, assignedTo, description, status, id) => {
   //console.log(name);
   const html = `
-  <li data-task-id = "${idTask}" class="list-group-item">
-            <div class="card">
+  <li class="list-group-item">
+            <div data-task-id="${id}" class="card">
               <div class="card-body">
                 <div class="row">
                   <h5 class="col card-title">${name}</h5>
@@ -24,6 +24,7 @@ const createTaskHtml = (name, dueDate, assignedTo, description, status, idTask) 
                 </div>
               </div>
               <button type="button" id="tasks-list" class="btn btn-success done-button">Mark As Done</button>
+            </div>
           </li>
   `;
   return html;
@@ -74,7 +75,7 @@ push the taskHtml into the tasksHtmlList array. */
       const date = new Date(currentTask[3]);
       const formattedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
       //adding 1 to getMonth() because array of months begins with 0=January...
-      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5], task.id);
+      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5], currentTask[0]);
       
       tasksHtmlList.push(taskHtml)
     }
