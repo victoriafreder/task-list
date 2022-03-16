@@ -49,8 +49,19 @@ submitButton.addEventListener('click', function () {
     myTask.render();
     const taskForm = document.getElementById('task-form');
     taskForm.reset();
+    
   }
 } );
 
 //const taskHtml = createTaskHtml('Get groceries', 'get eggs and milk', 'Victoria', '3/15/2022', 'To Do');
 //console.log(taskHtml)
+
+const newTasksList = document.querySelector('#tasks-list');
+newTasksList.addEventListener('click', (event) => { 
+  //for (event; newTasksList) {
+    if (event.target.classList.contains("done-button"))  {
+      const parentTask = event.target.parentElement;
+      console.log('parentTask= ', parentTask);
+    }
+  //}
+});

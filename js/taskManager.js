@@ -1,7 +1,7 @@
-const createTaskHtml = (name, dueDate, assignedTo, description, status) => {
-  console.log(name);
+const createTaskHtml = (name, dueDate, assignedTo, description, status, idTask) => {
+  //console.log(name);
   const html = `
-  <li class="list-group-item">
+  <li data-task-id = "${idTask}" class="list-group-item">
             <div class="card">
               <div class="card-body">
                 <div class="row">
@@ -23,6 +23,7 @@ const createTaskHtml = (name, dueDate, assignedTo, description, status) => {
                   </ul>
                 </div>
               </div>
+              <button type="button" id="tasks-list" class="btn btn-success done-button">Mark As Done</button>
           </li>
   `;
   return html;
@@ -45,7 +46,7 @@ class TaskManager {
       status
     ];
     this.tasks.push(taskObj);
-    console.log(taskObj);
+    //console.log(taskObj);
     console.log(this.tasks);
   }
 
@@ -73,7 +74,7 @@ push the taskHtml into the tasksHtmlList array. */
       const date = new Date(currentTask[3]);
       const formattedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
       //adding 1 to getMonth() because array of months begins with 0=January...
-      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5]);
+      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5], task.id);
       
       tasksHtmlList.push(taskHtml)
     }
@@ -85,9 +86,11 @@ Hint: \n can be used to represent a newline.
 Make sure the tasks list in index.html has an id so it can be selected.
 
 Select the tasks list element and set its innerHTML to the tasksHtml. */
-
+    console.log('tasksHtmlList', tasksHtmlList);
     const tasksHtml = tasksHtmlList.join('\n');
+    console.log('tasksHtml', tasksHtml);
     const tasksList = document.getElementById('tasks-list');
     tasksList.innerHTML = tasksHtml;
+    console.log('tasksList', tasksList);
   }
 }
