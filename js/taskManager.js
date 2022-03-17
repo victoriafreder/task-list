@@ -1,5 +1,5 @@
-const createTaskHtml = (name, dueDate, assignedTo, description, status, id) => {
-  //console.log(name);
+const createTaskHtml = (name, dueDate, assignedTo, description, status = 'To Do', id) => {
+  //console.log(name); data-task-id="${id}"put in 1 div
   const html = `
   <li class="list-group-item">
             <div data-task-id="${id}" class="card">
@@ -37,61 +37,52 @@ class TaskManager {
     this.currentId = currentId;
     this.tasks = [];
   }
-  addTask = (name, dueDate, assignedTo, description, status = 'TO DO') => {
-    const taskObj = [
-      this.currentId++,
-      name,
-      dueDate,
-      assignedTo,
-      description,
-      status
-    ];
-    this.tasks.push(taskObj);
+  addTask (name, dueDate, assignedTo, description, status = 'TO DO') {
+      this.currentId++;
+      // name,
+      // dueDate,
+      // assignedTo,
+      // description,
+      // status
+    
+    this.tasks.push( {currentId: this.currentId, name: name, dueDate: dueDate, assignedTo: assignedTo, description: description, status: status} );
     //console.log(taskObj);
-    console.log(this.tasks);
+    //console.log(this.tasks);
   }
-
+  //UNCOMMENT LATER
   render() {
     const tasksHtmlList = [];
-
-/* Loop over the TaskManager's tasks, for each task:
-
-Store the current task in a variable
-
-Create a date variable, storing a new Date(), passing in the current task's dueDate to the Date constructor.
-
-Create a formattedDate variable, storing a readable string representing the date, using methods of the date we just created.
-
-Hint: Use MDN's Date reference to see what methods are available to format a date. Build a string using string concatenation or template literals. Check the example/taskManager.js to see how it can be done if you get stuck.
-
-Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
-
-push the taskHtml into the tasksHtmlList array. */
-
+    
     for (let i = 0; i < this.tasks.length; i++) {
       //store current task in a variable?
       const currentTask = this.tasks[i];
       
-      const date = new Date(currentTask[3]);
-      const formattedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+      const date = new Date(currentTask.dueDate);
+      const formattedDate = (date.getMonth() + 1) + '/' + (date.getDate() + 1) + '/' + date.getFullYear();
       //adding 1 to getMonth() because array of months begins with 0=January...
-      const taskHtml = createTaskHtml(currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5], currentTask[0]);
+      const taskHtml = createTaskHtml(currentTask.name, formattedDate, currentTask.assignedTo, currentTask.description, currentTask.status, currentTask.currentId);
+      // (currentTask[1], formattedDate, currentTask[2], currentTask[4], currentTask[5], currentTask[0]);
       
       tasksHtmlList.push(taskHtml)
     }
 
-/* After looping through each task, create a tasksHtml variable, set the variable to a string of HTML of all the tasks by joining the tasksHtmlList array together, separating each task's html with a newline.
-
-Hint: \n can be used to represent a newline.
-
-Make sure the tasks list in index.html has an id so it can be selected.
-
-Select the tasks list element and set its innerHTML to the tasksHtml. */
     console.log('tasksHtmlList', tasksHtmlList);
     const tasksHtml = tasksHtmlList.join('\n');
     console.log('tasksHtml', tasksHtml);
     const tasksList = document.getElementById('tasks-list');
     tasksList.innerHTML = tasksHtml;
     console.log('tasksList', tasksList);
+  }
+
+  getTaskById(taskId) {
+    
+    let foundTask;
+    for (let i = 0; i < this.tasks.length; i++) {
+      let task = this.tasks[i];
+      if (taskId === task.currentId) {
+        foundTask = task;
+      }
+    }
+    return foundTask;
   }
 }

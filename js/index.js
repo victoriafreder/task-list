@@ -45,7 +45,7 @@ submitButton.addEventListener('click', function () {
   validFormFieldInput();
   
   if (taskName && person && date && description) {
-    myTask.addTask(taskName, person, date, description);
+    myTask.addTask(taskName, date, person, description);
     myTask.render();
     const taskForm = document.getElementById('task-form');
     taskForm.reset();
@@ -53,15 +53,17 @@ submitButton.addEventListener('click', function () {
   }
 } );
 
-//const taskHtml = createTaskHtml('Get groceries', 'get eggs and milk', 'Victoria', '3/15/2022', 'To Do');
-//console.log(taskHtml)
+
+const taskHtml = createTaskHtml('Get groceries', '3/15/2022', 'Victoria', 'get eggs and milk');
+console.log(taskHtml);
 
 const newTasksList = document.querySelector('#tasks-list');
 newTasksList.addEventListener('click', (event) => { 
-  //for (event; newTasksList) {
+  
     if (event.target.classList.contains("done-button"))  {
       const parentTask = event.target.parentElement;
       console.log('parentTask= ', parentTask);
     }
-  //}
+  
 });
+
