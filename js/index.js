@@ -1,4 +1,4 @@
-//TASK 4
+//TASK 4 - 7
 const submitButton = document.getElementById('submit-button');
 const newTaskNameInput = document.querySelector('#task-name');
 const newAssignedToInput = document.querySelector('#assigned-person');
@@ -25,7 +25,6 @@ const validFormFieldInput = () => {
      if (inputValue.length === 0) {
        myAlert.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + 'Please input ' 
        + inputName + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';      
-      //  alertPlaceholder.append(myAlert);
        } 
    }
   
@@ -34,12 +33,8 @@ const validFormFieldInput = () => {
    warning(date, 'a date');
    warning(description, 'a task description');
 
-  // myTask.addTask(taskName, description, person, date, 'TODO');
-
 }
 
-//const test = new TaskManager;
-//test.addTask('aaa', 'fff', 'gggg', '01/01/2022');
 
 submitButton.addEventListener('click', function () {
   validFormFieldInput();
@@ -62,6 +57,11 @@ newTasksList.addEventListener('click', (event) => {
   
     if (event.target.classList.contains("done-button"))  {
       const parentTask = event.target.parentElement;
+
+      const taskId = Number(parentTask.dataset.taskId);
+      const task = myTask.getTaskById(taskId);
+      task.status = 'DONE';
+      myTask.render();
       console.log('parentTask= ', parentTask);
     }
   
