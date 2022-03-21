@@ -1,7 +1,7 @@
 const createTaskHtml = (name, dueDate, assignedTo, description, status = 'To Do', id) => {
  
   const html = `
-  <li class="list-group-item">
+  <li class="list-group-item col-5">
             <div data-task-id="${id}" class="card">
               <div class="card-body">
                 <div class="row">
@@ -9,19 +9,20 @@ const createTaskHtml = (name, dueDate, assignedTo, description, status = 'To Do'
                   <h6 class="col card-subtitle text-danger text-end">Due Date: ${dueDate}</h6>
                 </div>
                 <h6 class="card-subtitle mb-2 text-muted">Assigned to: ${assignedTo}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Status: ${status}</h6>
                 <p class="card-text">${description}</p>
-                <div class="dropdown d-flex justify-content-end">
+                <!-- <div class="dropdown d-flex justify-content-end">
                   <button class="btn btn-light dropdown-toggle" type="button" id="progress" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     ${status}
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="progress">
-                    <li><a class="dropdown-item" href="#">To Do</a></li>
-                    <li><a class="dropdown-item" href="#">In Progress</a></li>
-                    <li><a class="dropdown-item" href="#">Review</a></li>
-                    <li><a class="dropdown-item" href="#">Done</a></li>
+                    <li><a class="dropdown-item">To Do</a></li>
+                    <li><a class="dropdown-item">In Progress</a></li>
+                    <li><a class="dropdown-item">Review</a></li>
+                    <li><a class="dropdown-item">Done</a></li>
                   </ul>
-                </div>
+                </div>-->
               </div>
               <button type="button" id="tasks-list" class="btn btn-success done-button">Mark As Done</button>
             </div>
