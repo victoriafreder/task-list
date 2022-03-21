@@ -5,6 +5,8 @@ const newAssignedToInput = document.querySelector('#assigned-person');
 const dateInput = document.querySelector('#due-date');
 const newDescriptionInput = document.querySelector('#task-description');
 const myTask = new TaskManager;
+//myTask.load();
+//myTask.render();
 
   let taskName = newTaskNameInput.value;
   let person = newAssignedToInput.value;
@@ -49,9 +51,6 @@ submitButton.addEventListener('click', function () {
 } );
 
 
-const taskHtml = createTaskHtml('Get groceries', '3/15/2022', 'Victoria', 'get eggs and milk');
-console.log(taskHtml);
-
 const newTasksList = document.querySelector('#tasks-list');
 newTasksList.addEventListener('click', (event) => { 
   
@@ -62,7 +61,8 @@ newTasksList.addEventListener('click', (event) => {
       const task = myTask.getTaskById(taskId);
       task.status = 'DONE';
       myTask.render();
-      console.log('parentTask= ', parentTask);
+      //console.log('parentTask= ', parentTask);
+      myTask.save();
     }
   
 });

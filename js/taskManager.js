@@ -60,12 +60,9 @@ class TaskManager {
       tasksHtmlList.push(taskHtml)
     }
 
-    console.log('tasksHtmlList', tasksHtmlList);
     const tasksHtml = tasksHtmlList.join('\n');
-    console.log('tasksHtml', tasksHtml);
     const tasksList = document.getElementById('tasks-list');
     tasksList.innerHTML = tasksHtml;
-    console.log('tasksList', tasksList);
   }
 
   getTaskById(taskId) {
@@ -79,4 +76,23 @@ class TaskManager {
     }
     return foundTask;
   }
+
+  save() {
+    const tasksJson = JSON.stringify(this.tasks);
+    localStorage.setItem('tasks', tasksJson);
+    const currentId = JSON.stringify(this.currentId);
+    localStorage.setItem('currentId', currentId);
+  }
+
+  // load() {
+  //   if (localStorage.getItem('tasks')) {
+  //     const tasksJson = localStorage.getItem('tasks');
+  //     console.log(JSON.parse(tasksJson));
+  //     this.tasks.push(JSON.parse(tasksJson));
+  //   }
+  //   if (localStorage.getItem('currentId')) {
+  //     const currentId = localStorage.getItem('currentId');
+  //     this.currentId = Number(currentId)
+  //   }
+  // }
 }
