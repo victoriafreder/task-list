@@ -5,8 +5,8 @@ const newAssignedToInput = document.querySelector('#assigned-person');
 const dateInput = document.querySelector('#due-date');
 const newDescriptionInput = document.querySelector('#task-description');
 const myTask = new TaskManager;
-//myTask.load();
-//myTask.render();
+myTask.load();
+myTask.render();
 
   let taskName = newTaskNameInput.value;
   let person = newAssignedToInput.value;
@@ -46,6 +46,7 @@ submitButton.addEventListener('click', function () {
     myTask.render();
     const taskForm = document.getElementById('task-form');
     taskForm.reset();
+    myTask.save();
     
   }
 } );
@@ -56,13 +57,14 @@ newTasksList.addEventListener('click', (event) => {
   
     if (event.target.classList.contains("done-button"))  {
       const parentTask = event.target.parentElement;
-
+      console.log(parentTask);
       const taskId = Number(parentTask.dataset.taskId);
+      console.log(taskId);
       const task = myTask.getTaskById(taskId);
       task.status = 'DONE';
       myTask.render();
-      //console.log('parentTask= ', parentTask);
       myTask.save();
+      //console.log('parentTask= ', parentTask);
     }
   
 });
