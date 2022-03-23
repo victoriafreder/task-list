@@ -1,10 +1,11 @@
-//TASK 4 - 7
 const submitButton = document.getElementById('submit-button');
 const newTaskNameInput = document.querySelector('#task-name');
 const newAssignedToInput = document.querySelector('#assigned-person');
 const dateInput = document.querySelector('#due-date');
 const newDescriptionInput = document.querySelector('#task-description');
+
 const myTask = new TaskManager;
+
 myTask.load();
 myTask.render();
 
@@ -37,7 +38,6 @@ const validFormFieldInput = () => {
 
 }
 
-
 submitButton.addEventListener('click', function () {
   validFormFieldInput();
   
@@ -51,21 +51,24 @@ submitButton.addEventListener('click', function () {
   }
 } );
 
-
 const newTasksList = document.querySelector('#tasks-list');
 newTasksList.addEventListener('click', (event) => { 
   
     if (event.target.classList.contains("done-button"))  {
       const parentTask = event.target.parentElement;
-      console.log(parentTask);
       const taskId = Number(parentTask.dataset.taskId);
-      console.log(taskId);
       const task = myTask.getTaskById(taskId);
       task.status = 'DONE';
       myTask.render();
       myTask.save();
-      //console.log('parentTask= ', parentTask);
+    }
+
+    if (event.target.classList.contains("delete-button")) {
+      const parentTask = event.target.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+      myTask.deleteTask(taskId);
+      myTask.render();
+      myTask.save();
     }
   
 });
-

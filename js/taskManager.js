@@ -25,19 +25,19 @@ const createTaskHtml = (name, dueDate, assignedTo, description, status = 'To Do'
                 </div>-->
               </div>
               <button type="button" id="tasks-list" class="btn btn-success done-button">Mark As Done</button>
+              <button type="button" id="tasks-list" class="btn btn-danger delete-button">Delete</button>
             </div>
           </li>
   `;
   return html;
 }
 
-
-
 class TaskManager {
   constructor(currentId = 0) {
     this.currentId = currentId;
     this.tasks = [];
   }
+
   addTask (name, dueDate, assignedTo, description, status = 'TO DO') {
       this.currentId++;
     
@@ -95,4 +95,17 @@ class TaskManager {
       this.currentId = Number(currentId)
     }
   }
+
+  deleteTask(taskId)  {
+    var newTasks = [];
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (this.tasks[i].currentId != taskId) {
+        newTasks.push(task);
+        console.log("newTasks=", newTasks);
+      }
+    }
+    this.tasks = newTasks;
+  }
+
 }
