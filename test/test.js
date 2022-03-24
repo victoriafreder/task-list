@@ -1,6 +1,6 @@
 const {assert} = require('chai');
 const { describe, it } = require('mocha');
-const { addTask, deleteTask, getTaskById } = require('../js/taskManager.js');
+const { addTask, deleteTask, getTaskById, TaskManager} = require('../js/taskManager.js');
 //const app = require('../taskManager.js');
 
 describe('constructor', () => {
