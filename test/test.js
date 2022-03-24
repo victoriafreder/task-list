@@ -41,10 +41,10 @@ describe('addTask', () => {
   it('pushes task object into an array', () => {
     //Setup
     let testTask = new TaskManager;
-    let expected = testTask.tasks;
-    expected = [{currentId: 1, name: 'get groceries', dueDate: '2022/3/24', assignedTo: 'Victoria', description: 'get milk', status: 'TODO'}];
+    let expected = {currentId: 1, name: 'get groceries', dueDate: '2022/3/24', assignedTo: 'Victoria', description: 'get milk', status: 'TODO'};
     //Exercise
-     let actual = testTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO');
+    testTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO');
+    let actual = testTask.tasks[0];
     //Verify
       assert.deepEqual(actual, expected);
   })
