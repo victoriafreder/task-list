@@ -68,9 +68,14 @@ describe('getTaskById', () => {
 describe('deleteTask', () => {
   it('pushes the task into a new array', () => {
     //Setup
-
+    let testTask = new TaskManager;
+    const taskId = 1;
+    const expected = [];
     //Exercise
-
+    testTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO');
+    testTask.deleteTask(taskId);
+    const actual = testTask.tasks;
     //Verify
+    assert.deepEqual(actual, expected);
   })
 })
