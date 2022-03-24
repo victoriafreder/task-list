@@ -5,6 +5,7 @@ const dateInput = document.querySelector('#due-date');
 const newDescriptionInput = document.querySelector('#task-description');
 
 const myTask = new TaskManager;
+console.log(myTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO'));
 
 myTask.load();
 myTask.render();
@@ -43,6 +44,7 @@ submitButton.addEventListener('click', function () {
   
   if (taskName && person && date && description) {
     myTask.addTask(taskName, date, person, description);
+    console.log(myTask.addTask);
     myTask.render();
     const taskForm = document.getElementById('task-form');
     taskForm.reset();

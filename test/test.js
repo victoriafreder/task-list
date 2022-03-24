@@ -5,12 +5,23 @@ const { addTask, deleteTask, getTaskById, TaskManager} = require('../js/taskMana
 //const app = require('../taskManager.js');
 
 describe('constructor', () => {
-  it('is called when Task Manager is initialized', () => {
+  it('sets this.currentId to currentId', () => {
+    const testTask = new TaskManager;
+    const expected = 0;
+
+    const actual = testTask.currentId;
+
+    assert.strictEqual(actual, expected);
+  })
+
+  it('creates empty array', () => {
     //Setup
-
+    const testTask = new TaskManager;
+    const expected = [];
     //Exercise
-
+    const actual = testTask.tasks;
     //Verify
+    assert.deepEqual(actual, expected);
   })
 })
 
@@ -29,10 +40,13 @@ describe('addTask', () => {
 
   it('pushes task object into an array', () => {
     //Setup
-
+    let testTask = new TaskManager;
+    let expected = testTask.tasks;
+    expected = [{currentId: 1, name: 'get groceries', dueDate: '2022/3/24', assignedTo: 'Victoria', description: 'get milk', status: 'TODO'}];
     //Exercise
-
+     let actual = testTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO');
     //Verify
+      assert.deepEqual(actual, expected);
   })
 })
 
