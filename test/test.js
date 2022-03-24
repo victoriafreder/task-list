@@ -51,12 +51,17 @@ describe('addTask', () => {
 })
 
 describe('getTaskById', () => {
-  it('returns taskId', () => {
+  it('returns specific task', () => {
     //Setup
-
+    let testTask = new TaskManager;
+    const taskId = 1;
+    const expected = {currentId: 1, name: 'get groceries', dueDate: '2022/3/24', assignedTo: 'Victoria', description: 'get milk', status: 'TODO'};
     //Exercise
-
+    testTask.addTask('get groceries', '2022/3/24', 'Victoria', 'get milk', 'TODO');
+    
+    const actual = testTask.getTaskById(taskId);
     //Verify
+    assert.deepEqual(actual, expected);
   })
 })
 
